@@ -7,6 +7,7 @@ const play = document.getElementById("play");
 const play_global = document.getElementById("play_global");
 const global_score = document.getElementById("global_score");
 const board = document.getElementById("board");
+basket.style.left = "1px";
 let a;
 let b;
 const position = {
@@ -101,7 +102,7 @@ function recthit(rectone, recttwo) {
 } //end function
 // collision detection function end
 // add to score start
-document.onmousemove = () => {
+const addToScore = () => {
   const can = $(".can");
   can.each(function () {
     if (recthit("#basket", $(this))) {
@@ -110,6 +111,21 @@ document.onmousemove = () => {
       playSound("./assets/sound/addToScore.mp3");
     }
   });
+};
+addToScore();
+document.onkeydown = (e) => {
+  let left = basket.style.left.replace("px", "");
+  console.log(+left);
+  if (e.key == "ArrowRight") {
+    basket.style.left = +left + 52 + "px";
+    addToScore();
+  } else if (e.key == "ArrowLeft") {
+    basket.style.left = +left - 52 + "px";
+    addToScore();
+  }
+};
+document.onmousemove = () => {
+  addToScore();
 };
 // add to score end
 
