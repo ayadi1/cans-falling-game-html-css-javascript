@@ -41,18 +41,6 @@ const generateCans = (position) => {
 // generate cans end
 
 // play game start
-
-// get cursor position x start
-// board.addEventListener("mousemove", (e) => {
-//   const cursorPosition = e.clientX;
-//   if (cursorPosition > 900) {
-//     basket.style.left = "500px";
-//   } else if (cursorPosition < 377) {
-//     basket.style.left = "0px";
-//   } else {
-//     basket.style.left = cursorPosition - 377 + "px";
-//   }
-// });
 board.addEventListener("mousemove", function (event) {
   var relX = event.pageX - $(this).offset().left;
   if (relX > 500) {
@@ -129,8 +117,8 @@ document.onmousemove = () => {
 
 const playGame = (isPaused) => {
   if (!isPaused) {
-    a = setInterval(addCan, 220);
-    b = setInterval(moveDown, 22);
+    a = setInterval(addCan, 299);
+    b = setInterval(moveDown, 35);
   } else {
     console.log(a);
     clearInterval(a);
